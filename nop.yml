@@ -1,0 +1,12 @@
+---
+apiVersion: apps/v1
+kind: pod
+metadata:
+  name: nop
+spec: 
+  containers:
+    - name: nop
+      image: paddutester/nopcommerce
+      ports: 
+        - containerport: 5000
+          
