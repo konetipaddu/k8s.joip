@@ -9,4 +9,4 @@ spec:
       image: paddutester/spring-petclinic:spc-1.0
       ports: 
         - containerPort: 8080
-      protocol: TCP    
+          protocol: TCP    
