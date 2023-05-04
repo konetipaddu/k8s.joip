@@ -19,9 +19,11 @@ spec:
     spec:
       containers:
         name: jenkins
-        image: paddutester/jenkins/jenkins
-        ports:
-          - containerPort: 8080 
+        image: nginx
+        command:
+          - sleep
+          - 10s
+        
 
 
 
