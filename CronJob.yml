@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: nginxjob
+  labels: 
+    app: web
+spec: 
+   schedule: 2 * * * *
+   jobTemplate:
+     metadata:
+       name: nginx
+       labels:
+         app: web  
+     spec:
+       selector: 
+         matchExpressions: 
+           key: apps
+           values: In
+           operator: In
+       template: 
+         metadata: 
+           name: jenkins-batch
+         spec:
+            containers:
+              name: jenkins-job
+              image: paddutester/jenkins/jenkins
+              args:
+                - sleep
+                - 10s
+
+                     
+  
+ 
+

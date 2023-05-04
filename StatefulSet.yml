@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: 
+  name:
+  labels:
+spec: 
+  minReadySeconds:
+  replicas:
+  selector:
+    matchExpressions:  
+      key:
+      operator:
+      values:
+  template: 
+    metadata:
+      name:
+      labels:
+    spec:
+      containers:
+         name:
+         image:
+         ports:
+           name:
+           containerPort:
+           protocol:       
+
+
+
+
+   

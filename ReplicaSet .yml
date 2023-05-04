@@ -2,17 +2,28 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: jenkins-alpine
+  name: jenkins-job
+  labels: 
+    app: web
 spec:
   minReadySeconds: 3
   replicas: 5
+  selector:
+    matchLabels:
+      app: web
   template:
     metadata:
-      name: jenkins 
+      name: jenkins
+      labels:
+        app: web 
     spec:
       containers:
         name: jenkins
-        image: 
+        image: paddutester/jenkins/jenkins
         ports:
           - containerPort: 8080 
+
+
+
+          
   
