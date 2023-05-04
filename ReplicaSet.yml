@@ -23,6 +23,8 @@ spec:
           command:
             - sleep
             - 10s
+          ports:
+            - containerPort: 8080  
         
 
 
