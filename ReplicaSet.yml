@@ -13,12 +13,12 @@ spec:
       app: web
   template:
     metadata:
-      name: jenkins
+      name: nginx
       labels:
         app: web 
     spec:
       containers:
-        name: jenkins
+        name: nginx
         image: nginx
         command:
           - sleep
