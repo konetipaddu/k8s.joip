@@ -6,8 +6,8 @@ metadata:
   labels: 
     app: web
 spec:
-  minReadySeconds: 3
-  replicas: 5
+  minReadySeconds: 4
+  replicas: 6
   selector:
     matchLabels:
       app: web
