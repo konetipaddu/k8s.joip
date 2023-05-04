@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: gol
-      image: paddutester/gol.1.1
+      image: redis:7.2
       ports:
         - containerPort: 8080
 
