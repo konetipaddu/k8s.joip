@@ -12,8 +12,6 @@ spec:
        labels:
          app: dev  
      spec:
-       minReadySeconds: 2
-       replicas: 1
        selector: 
          matchExpressions: 
            - key: app
@@ -29,7 +27,7 @@ spec:
             restartPolicy: OnFailure
             containers:
               - name: jenkins-job
-                image: jenkins/jenkins
+                image: nginx
                 args:
                   - sleep
                   - 1s
