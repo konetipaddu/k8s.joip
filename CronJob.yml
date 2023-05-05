@@ -10,7 +10,7 @@ spec:
      metadata:
        name: nginx
        labels:
-         app: web  
+         app: dev  
      spec:
        selector: 
          matchExpressions: 
