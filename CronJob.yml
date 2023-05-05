@@ -5,30 +5,30 @@ metadata:
   labels: 
     app: web
 spec: 
-   schedule: 2 * * * *
-   jobTemplate:
-     metadata:
-       name: nginx
-       labels:
-         app: dev  
-     spec:
-       selector: 
-         matchLabels:
-           key: app
-           value: web
-       template: 
-         metadata: 
-           name: jenkins-batch
-           labels: 
-             app: web
-         spec:
-            restartPolicy: OnFailure
-            containers:
-              - name: jenkins-job
-                image: nginx
-                args:
-                  - sleep
-                  - 1s
+  schedule: 2 * * * *
+  jobTemplate:
+    metadata:
+      name: nginx
+      labels:
+        app: dev  
+    spec:
+      selector: 
+        matchLabels:
+          key: app
+          value: web
+      template: 
+        metadata: 
+          name: jenkins-batch
+          labels: 
+            app: web
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: jenkins-job
+              image: nginx
+              args:
+                - sleep
+                - 1s
 
                      
   
