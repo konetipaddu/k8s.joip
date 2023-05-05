@@ -12,6 +12,8 @@ spec:
       labels:
         app: qtdevops 
     spec:
+      minReadySeconds: 2
+      replicas: 2
       activeDeadlineSeconds: 1
       selector:
         matchExpressions:
