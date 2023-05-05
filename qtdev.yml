@@ -10,7 +10,7 @@ spec:
     metadata:
       name: qtdevops1
       labels:
-        dev: qt 
+        app: qtdevops 
     spec:
       activeDeadlineSeconds: 1
       selector:
