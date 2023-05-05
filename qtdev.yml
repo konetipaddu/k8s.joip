@@ -6,32 +6,26 @@ metadata:
   labels:
     app: qtdevops
 spec:
-  jobTemplate:
+  minReadySeconds: 2
+  replicas: 2
+  activeDeadlineSeconds: 1
+  selector:
+    matchExpressions:
+      - key: test
+        operator: In
+        values:
+          - nginx
+          - ubuntu
+  template:
     metadata:
-      name: qtdevops1
+      name: apache
       labels:
-        app: qtdevops 
+        test: nginx
     spec:
-      minReadySeconds: 2
-      replicas: 2
-      activeDeadlineSeconds: 1
-      selector:
-        matchExpressions:
-          - key: test
-            operator: In
-            values:
-              - nginx
-              - ubuntu
-      template:
-        metadata:
-          name: apache
-          labels:
-            test: nginx
-        spec:
-          containers:
-            - name: redis
-              image: redis:7.2
-              args:
-                - sleep
-                - 10s
-              
+      containers:
+        - name: redis
+          image: redis:7.2
+          args:
+            - sleep
+            - 10s
+        
