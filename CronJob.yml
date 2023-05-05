@@ -12,6 +12,8 @@ spec:
        labels:
          app: dev  
      spec:
+       minReadySeconds: 2
+       replicas: 1
        selector: 
          matchExpressions: 
            - key: app
