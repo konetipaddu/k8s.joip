@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: 
+  name: mysql
+  labels: 
+    - app: alpine
+spec: 
+  minReadySeconds: 2
+  replicas: 1
+  selector: 
+    matchExpressions: 
+      - key: nginx
+      - operator: In
+      - values: 
+          - apache
+      - key: web
+      - operator: NotIn
+      - values: 
+          - app 
+  template:
+    metadata:
+      name: mysql-job
+      labels: 
+        - app: 
+    spec:
+      containers:
+        - name: mysql-pod
+        - args: 
+            - sleep
+            - 10s
+        - image: mysql:8.0-debian
+        - ports: 
+            - containerPort: 3306
+              protocol: TCP
+    volumeClaimTemplates:
+       apiVersion: apps/v1
+       kind: PersistentVolumeClaim
+       metadata:
+         name:
+         spec: 
+         
+
+
+
+
+         
+                
+ 
+ 
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+

@@ -8,7 +8,6 @@ spec:
       image: redis
       args:
         - sleep
-      command:
         - 10s
 
 

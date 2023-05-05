@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deploy
+spec: 
+  selector:
+    matchExpressions:
+      - key:
+        values:
+  template:
+    metadata:
+      name:
+    spec:
+      containers:
+        - args:
+          image:
+          ports:
+            - containerPort:
+
+
+
+
+
+
+
+      
+
+
+
+
