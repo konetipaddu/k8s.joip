@@ -8,18 +8,13 @@ spec:
     metadata:
       name: nginxjob
     spec: 
-      selector:
-        matchExpressions:
-          - key: app
-            operator: In
-            values:
-              - web
       template: 
         metadata: 
           name: nginx-pod
           labels: 
             app: web
         spec: 
+          restartPolicy: OnFailure
           containers:
             - name: nginx-kube
               image: nginx

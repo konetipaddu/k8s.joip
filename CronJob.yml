@@ -12,10 +12,6 @@ spec:
       labels:
         app: dev  
     spec:
-      selector: 
-        matchLabels:
-          key: app
-          value: web
       template: 
         metadata: 
           name: jenkins-batch
