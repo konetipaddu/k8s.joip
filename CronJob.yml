@@ -32,7 +32,7 @@ spec:
                 image: jenkins/jenkins
                 args:
                   - sleep
-                  - 10s
+                  - 1s
 
                      
   
