@@ -16,7 +16,8 @@ spec:
          matchExpressions: 
            - key: app
              operator: In
-               - values: web
+             values: 
+               - web
        template: 
          metadata: 
            name: jenkins-batch
