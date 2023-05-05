@@ -5,12 +5,12 @@ metadata:
   labels: 
     app: web
 spec: 
-  schedule: 2 
+  schedule: 2 * * * *
   jobTemplate:
     metadata:
-      name: nginxjob
+      name: nginx
       labels:
-        app: web  
+        app: dev  
     spec:
       selector: 
         matchLabels:
@@ -18,14 +18,14 @@ spec:
           value: web
       template: 
         metadata: 
-          name: nginxjob
+          name: jenkins-batch
           labels: 
             app: web
         spec:
           restartPolicy: OnFailure
           containers:
-            - name: nginxjob
-              image: nginx:1:23
+            - name: jenkins-job
+              image: nginx
               args:
                 - sleep
                 - 1s

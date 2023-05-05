@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata: 
+  name: nginx
+spec:
+  schedule: 2 * * * *
+  jobTemplate:
+    metadata:
+      name: nginxjob
+    spec: 
+      selector:
+        matchExpressions:
+          - key: app
+            operator: In
+            values:
+              - web
+      template: 
+        metadata: 
+          name: nginx-pod
+          labels: 
+            app: web
+        spec: 
+          containers:
+            - name: nginx-kube
+              image: nginx
+              ports:
+                - containerPort: 80
+
+    
+           
+    
+
+        
+
+            
+
+ 
+

@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: developer
+  labels:
+    app: qtdevops
+    version: 7.2
+spec:
+  jobTemplate:
+    metadata:
+      name: qtdevops1
+      labels:
+        dev: qt 
+    spec:
+      activeDeadlineSeconds: 1
+      selector:
+        matchExpressions:
+          - key: test
+            operator: In
+            values:
+              - nginx
+              - ubuntu
+      template:
+        metadata:
+          name: apache
+          labels:
+            test: nginx
+        spec:
+          containers:
+            - name: redis
+              image: redis:7.2
+              args:
+                - sleep
+                - 10s
+              
