@@ -5,7 +5,6 @@ metadata:
   name: developer
   labels:
     app: qtdevops
-    version: 7.2
 spec:
   jobTemplate:
     metadata:
