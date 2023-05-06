@@ -10,7 +10,7 @@ spec:
   replicas: 1
   selector:
     matchExpressions:  
-      - key: app
+      - key: test
         operator: In
         values: 
           - web
@@ -19,7 +19,7 @@ spec:
       metadata:
         name: mysql-job
         labels: 
-          app: dev
+          test: dev
       spec:
         containers:
           - name: mysql-pod
