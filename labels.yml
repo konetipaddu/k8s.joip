@@ -1,0 +1,50 @@
+## labels and selectors
+
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: 
+  labels:
+    app:
+  annotations:
+    client: 
+    contact: 
+spec:
+  minReadySeconds: 1
+  replicas: 5
+  selector:
+    matchLabels:
+      app: 
+  template:
+    metadata:
+      name: 
+      labels:
+        app: 
+      annotations:
+        client: 
+        contact: 
+    spec:
+      containers:
+        - name: 
+          image: 
+          ports:
+            - containerPort:
+              protocol: TCP
+
+
+## service file 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: 
+spec:
+  selector:
+    app:
+  type: 
+  ports:
+    - port: 
+      protocol: TCP
+      targetPort:             

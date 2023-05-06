@@ -1,22 +1,56 @@
+## Jenkins deploy by using deployment
+
+---
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
-  name: deploy
-spec: 
+metadata:
+  name: spc
+  labels:
+    tool: spring-petclinic
+spec:
+  minReadySeconds: 2
+  replicas: 4
   selector:
-    matchExpressions:
-      - key:
-        values:
+    matchLabels:
+      tool: spring-petclinic
+  strategy:
+    type: 
+    rollingUpdate:
+      maxSurge: 
+      maxUnavailable: 
   template:
     metadata:
-      name:
+      name: spc-pod
+      labels:
+        tool: spring-petclinic
     spec:
       containers:
-        - args:
-          image:
+        - name: spc
+          image: 
+          resources:
+            requests:
+              memory:
+              cpu: 
           ports:
-            - containerPort:
+            - containerPort: 8080
 
+
+## service file for jenkins
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alpine
+spec:
+  selector:
+    tool: ubuntu
+  type: 
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80            
+          
 
 
 

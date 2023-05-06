@@ -2,28 +2,30 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata: 
-  name:
-  labels:
+  name: mysql
+  labels: web
 spec: 
-  minReadySeconds:
-  replicas:
+  minReadySeconds: 2
+  replicas: 1
   selector:
     matchExpressions:  
-      key:
-      operator:
-      values:
-  template: 
-    metadata:
-      name:
-      labels:
-    spec:
-      containers:
-         name:
-         image:
-         ports:
-           name:
-           containerPort:
-           protocol:       
+      - key: app
+        operator: In
+        values: 
+          - web
+    template: 
+      metadata:
+        name: mysql-job
+        labels: 
+          app: web
+      spec:
+        containers:
+          name: mysql-pod
+          image: mysql:8.0-debian
+          ports:
+            name: mysqls
+            containerPort: 3306
+            protocol: TCP      
 
 
 

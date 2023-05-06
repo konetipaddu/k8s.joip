@@ -1,0 +1,70 @@
+## Restart always 
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: always-restart
+spec:
+  restartPolicy: Always
+  containers:
+    - name: always
+      image: jenkins/jenkins
+      ports:
+        - containerPort: 8080
+      command: 
+        - sleep
+        - 10s
+
+
+## Restart Onfailure (code failure)
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: onfailure-restart
+spec:
+  restartPolicy: OnFailure
+  containers:
+    - name: failure
+      image: nginx
+      ports:
+        - containerPort: 80
+      args:
+        - sleep
+        - 1s 
+
+## Restart Onfailure (code succes
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: onfailure-restart-pod
+spec:
+  restartPolicy: OnFailure
+  containers: 
+    - name: success
+      image: paddutester/nopcommerce
+      ports:
+        - containerPort: 8080
+      args:
+        - sleep
+        - 10s
+        
+## Restart-never
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: never-restart-pod
+spec:
+  restartPolicy: Never
+  containers:
+    - name: always
+      image: paddutester/spc
+      ports:
+        - containerPort: 8080
+      args:
+        - sleep
+        - 10s
+
+        
