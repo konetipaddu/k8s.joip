@@ -15,19 +15,19 @@ spec:
         values: 
           - web
           - dev
-    template: 
-      metadata:
-        name: mysql-job
-        labels: 
-          test: dev
-      spec:
-        containers:
-          - name: mysql-pod
-            image: mysql:8.0-debian
-            ports:
-              - name: mysqls
-                containerPort: 3306
-                protocol: TCP      
+  template: 
+    metadata:
+      name: mysql-job
+      labels: 
+        test: dev
+    spec:
+      containers:
+        - name: mysql-pod
+          image: mysql:8.0-debian
+          ports:
+            - name: mysqls
+              containerPort: 3306
+              protocol: TCP      
 
 
 
