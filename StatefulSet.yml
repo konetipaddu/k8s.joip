@@ -20,12 +20,12 @@ spec:
           app: web
       spec:
         containers:
-          name: mysql-pod
-          image: mysql:8.0-debian
-          ports:
-            name: mysqls
-            containerPort: 3306
-            protocol: TCP      
+          - name: mysql-pod
+            image: mysql:8.0-debian
+            ports:
+              - name: mysqls
+                containerPort: 3306
+                protocol: TCP      
 
 
 
