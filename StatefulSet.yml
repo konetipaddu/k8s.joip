@@ -3,7 +3,8 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata: 
   name: mysql
-  labels: web
+  labels: 
+    app: web
 spec: 
   minReadySeconds: 2
   replicas: 1
@@ -13,11 +14,12 @@ spec:
         operator: In
         values: 
           - web
+          - dev
     template: 
       metadata:
         name: mysql-job
         labels: 
-          app: web
+          app: dev
       spec:
         containers:
           - name: mysql-pod
