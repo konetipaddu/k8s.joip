@@ -1,0 +1,52 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql-db-statefulset
+  labels: 
+    app: mysql-db
+spec: 
+  minReadySeconds: 2
+  podManagementPolicy: 
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: mysql-db
+  serviceName: mysql-stateful-sevice
+  template: 
+    metadata: 
+      name: mysql-set
+      labels:
+        app: mysql-db
+    spec:
+      containers:
+        - name: mysql-statefulset
+          image: mysql
+          env: 
+            - name: MYSQL_ROOT_PASSWORD
+              value: rootroot
+            - name: MYSQL_DATABASE
+              value: mysqldb
+            - name: MYSQL_USER
+              value: hema
+            - name: MYSQL_PASSWORD
+              value: rootroot
+          livenessProbe:
+            failureThreshold: 4
+            initialDelaySeconds: 3
+          readinessProbe:
+            failureThreshold: 1
+            periodSeconds: 2
+            initialDelaySeconds: 3
+            timeoutSeconds: 2
+            successThreshold: 4
+            exec:
+              command:
+                - sleep 
+                - 10s
+            ports:
+              - containerPort: 3306
+                protocol: TCP 
+            volumeMounts:
+              - name: persisted-volume
+                mountPath: /var/lib/mysql 

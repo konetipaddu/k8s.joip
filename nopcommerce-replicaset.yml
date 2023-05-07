@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: nop-deploy
+  labels:
+    name: alpine
+spec:
+  minReadySeconds: 2
+  progressDeadlineSeconds: 5
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alpine
+  template:
+    metadata: 
+      name: nop
+      labels:
+        app: alpine
+    spec:
+      containers:
+        - name: nopcommerce-deploy
+          image: 
+          ports:
+            - containerPort: 5000
+              protocol: TCP

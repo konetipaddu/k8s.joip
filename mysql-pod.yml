@@ -1,0 +1,7 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: mysql
+spec:
+  containers:
+    - name: mysql  

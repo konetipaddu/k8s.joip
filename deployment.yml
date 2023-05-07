@@ -14,10 +14,10 @@ spec:
     matchLabels:
       tool: spring-petclinic
   strategy:
-    type: 
-    rollingUpdate:
-      maxSurge: 
-      maxUnavailable: 
+    type: RollingUpdate
+    rollingUpdate: 
+      maxSurge: 20%
+      maxUnavailable: 20%
   template:
     metadata:
       name: spc-pod
@@ -26,11 +26,11 @@ spec:
     spec:
       containers:
         - name: spc
-          image: 
+          image: paddutester/spring-petclinic:spc-1.0
           resources:
             requests:
-              memory:
-              cpu: 
+              memory: 150mi
+              cpu: 100m
           ports:
             - containerPort: 8080
 

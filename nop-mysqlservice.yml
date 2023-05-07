@@ -1,0 +1,66 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-nop-service
+  labels:
+    app: mysql
+spec:
+  ports:
+    - port: 5000
+      name: nop
+      protocol: TCP
+    - port: 3306
+      name: mysql
+      protocol: TCP
+  selector: 
+    app: mysql
+  type: LoadBalancer 
+
+
+### servicefile in nop
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alpine-mysql
+  labels:
+    app: alpine-service
+spec:
+  selector:
+    app: alpine-service
+    tier: web
+  ports:
+    - port: 80
+  type: LoadBalancer
+
+
+###  deployment.yml-file in jenkins 
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  selector:
+    matchLabels:
+      app: jenkins-deploy
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: jenkins-deploy
+        tier: web
+    spec:
+      containers:
+        - name: jenkins
+          image: jenkins/jenkins
+          resources:
+            limits:
+              memory: "130Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 80
+              name: app
