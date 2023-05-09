@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
     - name: mysql-pod
-      image: mysql
+      image: mysql:8.0.33
       ports:
         - containerPort: 3306
       volumeMounts:
