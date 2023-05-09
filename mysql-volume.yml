@@ -16,6 +16,6 @@ spec:
         - name: volume-test
           mountPath: /var/lib/mysql
   volumes:
-    - name: mysql-volume-pods
+    - name: volume-test
       persistentVolumeClaim:
-        claimName: mysql-volume
+        claimName: persisted-volume
