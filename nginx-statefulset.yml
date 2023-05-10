@@ -8,12 +8,12 @@ spec:
   serviceName: nginx-svc
   selector:
     matchLabels:
-      app: nginx
+      app: 'nginx'
   template: 
     metadata:
       name: nginx
       labels:
-        app: nginx
+        app: 'nginx'
     spec:
       containers:
         - name: nginx
