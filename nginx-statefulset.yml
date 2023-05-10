@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx
+spec:
+  minReadySeconds: 2
+  replicas: 2
+  serviceName: nginx-svc
+  selector:
+    matchLabels:
+      app: nginx
+  template: 
+    metadata:
+      name: nginx
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: niginx-home
+              mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+    - metadata:
+        name: niginx-home
+      spec:
+        accessModes: 
+          - ReadWriteOnce
+        resources: 
+          requests: 
+            storage: 5mi
+        storageClassName: medium 
+  
+
+
+
+  
+
+            
+
+  
+
+
+
+
+
+    
+
+   
