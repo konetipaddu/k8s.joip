@@ -31,8 +31,8 @@ spec:
           - ReadWriteOnce
         resources: 
           requests: 
-            storage: 5mi
-        storageClassName: manual
+            storage: 1Gi
+        
   
 
 
