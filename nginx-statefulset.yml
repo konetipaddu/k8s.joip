@@ -5,7 +5,7 @@ metadata:
 spec:
   minReadySeconds: 2
   replicas: 2
-  serviceName: nginx-svc
+  serviceName: "nginx-svc"
   selector:
     matchLabels:
       app: nginx
