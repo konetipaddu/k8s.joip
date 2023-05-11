@@ -1,4 +1,4 @@
-## Jobs
+## Jobs: Jobs run a single time
 ---
 apiVersion: batch/v1
 kind: Job
@@ -20,7 +20,7 @@ spec:
             - sleep
             - 1s
                      
-## Cronjob
+## Cronjob: while CronJobs run on a scheduled interval
 ---
 apiVersion: batch/v1
 kind: CronJob

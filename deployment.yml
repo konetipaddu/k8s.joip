@@ -1,4 +1,5 @@
 ## Jenkins deploy by using deployment
+deployment: A deployment is responsible for keeping a set of pods running.
 
 ---
 apiVersion: apps/v1
@@ -36,6 +37,7 @@ spec:
 
 
 ## service file for jenkins
+service: A service is responsible for enabling network access to a set of pods.
 
 ---
 apiVersion: v1

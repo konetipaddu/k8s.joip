@@ -1,4 +1,5 @@
-## Restart always 
+## Restart always:
+always: restartPolicy only refers to restarts of the containers by the kubelet on the same node.
 ---
 apiVersion: v1
 kind: Pod
@@ -51,6 +52,7 @@ spec:
         - 10s
         
 ## Restart-never
+never: Never means that the container will not be restarted regardless of why it exited.
 ---
 apiVersion: v1
 kind: Pod

@@ -28,7 +28,7 @@ spec:
             - name: MYSQL_DATABASE
               value: mysqldb
             - name: MYSQL_USER
-              value: hema
+              value: 
             - name: MYSQL_PASSWORD
               value: rootroot
           livenessProbe:
