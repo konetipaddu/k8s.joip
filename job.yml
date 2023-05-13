@@ -1,0 +1,17 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      name: alpine
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: nginx-job
+          image: nginx
+          ports:
+            - containerPort: 80

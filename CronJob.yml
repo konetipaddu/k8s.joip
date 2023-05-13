@@ -3,7 +3,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: Job1
+  name: job
 spec:
   backoffLimit: 2
   template:
@@ -13,12 +13,10 @@ spec:
       restartPolicy: Never
       containers:
         - name: nginx-job
-          image: alpine
+          image: nginx
           ports:
-            - containerPort: 8080
-          args:
-            - sleep
-            - 1s
+            - containerPort: 80
+          
                      
 ## Cronjob: while CronJobs run on a scheduled interval
 ---
