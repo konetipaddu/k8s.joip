@@ -17,8 +17,8 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate: 
-      maxSurge: 20%
-      maxUnavailable: 20%
+      maxSurge: 25%
+      maxUnavailable: 25%
   template:
     metadata:
       name: spc-pod
@@ -46,8 +46,8 @@ metadata:
   name: alpine
 spec:
   selector:
-    tool: ubuntu
-  type: 
+    tool: spring-petclinic
+  type: LoadBalancer
   ports:
     - port: 80
       protocol: TCP
